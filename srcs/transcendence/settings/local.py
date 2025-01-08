@@ -73,10 +73,19 @@ WSGI_APPLICATION = 'transcendence.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+DB_NAME = "DB_NAME"
+DB_USER_NM = "DB_USER_NM"
+DB_USER_PW = "DB_USER_PW"
+DB_IP = "0.0.0.0"
+DB_PORT = "6969"
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+		'USER': DB_USER_NM,
+		'PASSWORD': DB_USER_PW,
+		'HOST': DB_IP,
+		'PORT': DB_PORT,
     }
 }
 
