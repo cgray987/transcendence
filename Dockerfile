@@ -8,7 +8,7 @@ ENV PYTHONBUFFERED=1
 ENV PYTHONPATH=/app/srcs
 
 # Define env variable for web service's port, commonly used in cloud services
-ENV PORT 8080
+ENV PORT=8080
 
 # Set working directory within container to /app for subsequent commands
 WORKDIR /app
