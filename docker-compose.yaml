@@ -1,6 +1,15 @@
 services:
+  admin:
+    image: adminer
+    restart: always
+    depends_on: 
+      - db
+    ports:
+      - 8080:8080
   db:
     image: postgres
+    ports:
+      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
@@ -8,10 +17,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   web:
-    build: .
+    container_name: django_web
+    build: ./srcs
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app
+      - ./srcs/django:/app
     ports:
       - "8000:8000"
     environment:

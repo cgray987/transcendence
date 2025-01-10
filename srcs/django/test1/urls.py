@@ -1,5 +1,5 @@
 """
-URL configuration for composeexample project.
+URL configuration for transcendence project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -14,9 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+# Import necessary modules
+from django.urls import path       # URL routing
+from django.contrib import admin  # Django admin module
+from django.conf import settings   # Application settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # Static files serving
+from . import views
 
+# Define URL patterns
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('',  views.home, name="home"),      # Home page
+
 ]
+
