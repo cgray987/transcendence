@@ -1,5 +1,5 @@
 services:
-  admin:
+  adminer:
     image: adminer
     restart: always
     depends_on: 
