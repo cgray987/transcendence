@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Ping Pong Ping Pong :)">
+		<title>Pong Masters</title>
+		<link rel="icon" href="/static/assets/UI/icons/favicon.svg">
+		<link rel="stylesheet" href="/static/css/main.css">
+		<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+		<script type="importmap">
+			{
+			"imports": {
+				"three": "https://cdn.jsdelivr.net/npm/three@v0.167.1/build/three.module.js",
+				"three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.167.1/examples/jsm/"
+			}
+			}
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</head>
+	<body>
+		<!-- Load Transition -->
+		<div id="upper-transition-rectangle"></div>
+		<div id="lower-transition-rectangle"></div>
+		
+		<!-- The div where all the content of the page will be dynamically loaded -->
+		<main id="app" tabindex="-1"></main>
+
+		<!-- The website background -->
+		<div class="background-noise" aria-hidden="true"></div>
+		<div class="gradient-bg" aria-hidden="true">
+			<!-- The video background to avoid slowing down the frontend -->
+			<video autoplay muted loop preload="auto" id="video-background">
+				<source src="/static/assets/videos/vviolet_background.mp4" type="video/mp4">
+			</video>
+
+			<!-- The dynamic background -->
+			<!-- The gooey effect -->
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+						<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
+			<!-- The animated gradient shapes -->
+			<div class="gradients-container" style="display: none;">
+				<div class="g1"></div>
+				<div class="g2"></div>
+				<div class="g3"></div>
+				<div class="g4"></div>
+				<div class="g5"></div>
+				<div class="interactive"></div>
+			</div>
+		</div>
+
+		<!-- The website's javascript -->
+		<script type="module" src="/static/js/index.js"></script>
+	</body>
+</html>

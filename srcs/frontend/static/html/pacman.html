@@ -1,0 +1,128 @@
+<div class="full-height d-flex align-items-center justify-content-center pacman-page">
+	<div class="toast-container position-fixed top-0 end-0 p-3">
+		<div id="liveToast" class="toast" style="background-color: rgba(0, 0, 0, 0); border: none; max-width: none; width: auto;" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="d-flex glass">
+				<div class="toast-body">
+					<div class="col-12 justify-content-center align-items-center p-2">
+						<p class="text-white text-center" style="display: inline; margin-right: 5px;" id="toastBody"></p>
+					</div>
+				</div>
+				<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-p="Close"></button>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-12 text-center mb-3">
+			<p class="text-white h1" animated-letters data-translate="pac-man">pac-man</p>
+			<div class=" d-flex justify-content-center m-3">
+				<hr class="text-white" style="width: 400px;">
+			</div>
+		</div>
+		<div class="col pacman-game-container container">
+			<div class="container pacman-ingame-stat">
+				<div class="row text-white d-flex justify-content-center pb-3">
+					<div class="col-6 d-flex justify-content-start">
+						<div class="d-flex justify-content-center align-items-center">
+							<img class="me-2" src="/static/assets/pacman/images/pac-man_high_res.png" width="32px"/>
+							<p id="pScore" style="display: inline;" class="h3 mb-0">00</p>
+							<p style="display: inline;" class="h3 total-score mb-0">/</p>
+							<p style="display: inline;" class="h3 total-score mb-0" id="pGamemode">10000</p>
+						</div>
+					</div>
+					<div class="col-6 d-flex justify-content-end">
+						<div class="d-flex justify-content-center align-items-center">
+							<img class="me-2" src="/static/assets/UI/icons/time.svg" width="32px"/>
+							<p id="timer" class="h3 mb-0">00:00</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="col-12 d-flex flex-column align-items-center mb-3" id="gameContainer">
+					<canvas class="squarer-glass" id="cvsPacman" width="500px" height="500px"></canvas>
+					<button id="btnStart" class="btn btn-lg text-light btn-filled" data-translate="start game"></button>
+				</div>
+			</div>
+			<div class="pacman-player-box-container">
+			<!-- <div class="row justify-content-center pacman-player-box-container"> -->
+				<!-- <div class="col-5 d-flex flex-column align-items-center squarer-glass me-3 p-2 pacman-player-box"> -->
+				<div class="squarer-glass pacman-player-box">
+					<p class="text-white h5 text-center" id="pacmanSpellName"></p>
+					<p class="text-white h6" id="pCD"></p>	
+					<img class="m-3" id="imgPacmanSkin"/>
+					<p class="h4 text-white m-0" id="pacmanPlayerLabel"></p>
+				</div>
+				<!-- <div class="col-5 d-flex flex-column align-items-center squarer-glass  p-2 pacman-player-box-container"> -->
+				<div class="squarer-glass pacman-player-box">
+					<p class="text-white h5 text-center" id="ghostSpellName"></p>
+					<p class="text-white h6" id="gCD"></p>	
+					<img class="m-3" id="imgGhostSkin"/>
+					<p class="h4 text-white m-0" id="ghostPlayerLabel"></p>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="pauseModal" data-bs-backdrop="static" tabindex="-1" aria-pledby="pauseModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center">
+						<div class="modal-header">
+							<p class="h3 modal-title text-white w-100 text-center" data-translate="game paused"></p>
+						</div>
+						<div class="modal-body">
+							<div class="col-12 d-flex flex-column align-items-center">
+								<div class="col-10 d-flex justify-content-center mt-2">
+									<p class="h5 text-white" data-translate="press escape"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="modal fade glass-modal-bg" id="endgameModal" data-bs-backdrop="static" tabindex="-1" aria-pledby="endgameModalLabel" aria-hidden="true" data-bs-keyboard="false">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center glass">
+						<div class="modal-header">
+							<div class="col-12 d-flex justify-content-center align-items-center">
+								<p class="h1 text-white text-center" style="display: inline;" id="endgameModalWinner"></p>
+								<p class="h1 text-white text-center" style="display: inline; margin-left: 20px;" data-translate="won-the-game"></p>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col-12 d-flex flex-column align-items-center">
+								<div class="col-10 d-flex justify-content-center align-items-center">
+									<p class="h3 text-white text-center" style="display: inline; margin-right: 10px;" data-translate="pacman-score"></p>
+									<p class="h3 text-white text-center" id="endgameModalScore"></p>
+								</div>
+								<div class="col d-flex justify-content-center align-items-center mb-2">
+									<img src="/static/assets/UI/icons/time.svg" width="28x"/>
+									<p class="h4 text-white text-center mb-0 ms-2" id="endgameModalTime"></p>
+								</div>
+								<div class="col-12 d-flex justify-content-center mt-3 mb-2">
+									<button type="button" class="btn btn-lg text-white btn-filled mx-2" id="playAgainButton" data-bs-dismiss="modal" data-translate="play-again"></button>
+									<button type="button" class="btn btn-lg text-white btn-filled mx-2" width="60px" height="60px" id="btnSwap" data-bs-dismiss="modal" data-translate="swap-players"></button>
+									<a type="button" class="btn btn-lg text-white btn-filled mx-2" href="/pacmanMenu" data-link data-bs-dismiss="modal" data-translate="menu"></a>
+									<a type="button" class="btn btn-lg text-white btn-filled mx-2" href="/" data-link data-bs-dismiss="modal" data-translate="home-page"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-12 text-center mt-4 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/pacmanMenu" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>
+<div class="container full-height d-flex flex-column align-items-center justify-content-center games-page-mobile" style="display: none;">
+	<div class="container p-5 glass">
+		<p class="text-white text-center p-0 m-0" data-translate="games-not-available-mobile">games are not available on mobile.</p>
+	</div>
+	<div class="row justify-content-center mb-3">
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+.table-container {
+	height: 400px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	overflow-y: auto;
+	animation: fadeIn 0.5s ease-out;
+	scrollbar-color: rgba(255,255,255, 0.5) transparent;
+}
+
+.global-table-container {
+	height: fit-content;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	overflow-y: auto;
+	animation: fadeIn 0.5s ease-out;
+}
+
+.stats-table {
+	border-collapse: separate;
+	max-height: 100%;
+	overflow-x: auto;
+
+	thead {
+		border-radius: inherit;
+		overflow: hidden;
+		position: sticky;
+        top: 0;
+        z-index: 1;
+		backdrop-filter: blur(10px);
+		
+		th {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+		}
+	}
+
+	tbody {
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: inherit;
+	}
+
+	th, td {
+		border: none;
+		padding: 10px;
+		height: fit-content;
+	}
+}
+
+#pong-global-stat-table, #pacman-global-stat-table {
+	width: 100%;
+	table-layout: fixed;
+}

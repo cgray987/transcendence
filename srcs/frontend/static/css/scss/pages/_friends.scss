@@ -1,0 +1,106 @@
+.container-friends {
+	max-width: rem(800px);
+	height: 700px;
+}
+
+.list-container {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.users-list, .friends-list {
+	height: 90%;
+}
+
+#user-elements, #friend-elements {
+	height: calc(100% - 80px);
+	overflow-y: auto;
+	scrollbar-color: rgba(255,255,255, 0.5) transparent;
+}
+
+.user-element {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	margin: 10px;
+	padding: 10px;
+	display: block;
+	text-align: start;
+
+	.profile-pic-list {
+		width: 30px;
+		height: 30px;
+		display: inline;
+		margin-right: 5px;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 50%;
+	}
+
+	.plus-icon-list {
+		width: 20px;
+		height: 20px;
+		display: inline;
+		margin-left: auto;
+		transition: 0.3s;
+
+		&:hover {
+			filter: brightness(0.7);
+			rotate: 90deg;
+			cursor: $cursor-pointer;
+		}
+	}
+
+	p {
+		display: inline;
+	}
+}
+
+.friend-element {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	margin: 10px;
+	padding: 10px;
+	display: block;
+	text-align: start;
+	position: relative;
+
+	.profile-pic-list {
+		width: 30px;
+		height: 30px;
+		display: inline;
+		margin-right: 5px;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 50%;
+	}
+
+	.minus-icon-list {
+		width: 20px;
+		height: 20px;
+		display: inline;
+		margin-left: auto;
+		transition: 0.3s;
+
+		&:hover {
+			filter: brightness(0.7);
+			rotate: 180deg;
+			cursor: $cursor-pointer;
+		}
+
+	}
+
+	p {
+		display: inline;
+	}
+
+	.online-icon-list {
+		width: 15px;
+		height: 15px;
+		display: inline;
+		position: absolute;
+		top: 26px;
+		left: 19px;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 50%;
+	}
+}

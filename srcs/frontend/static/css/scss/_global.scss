@@ -1,0 +1,98 @@
+.full-height {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	min-height: 100vh;
+}
+
+.big-text {
+	font-size: 1.5rem;
+}
+
+input, select, a, .clickable {
+	cursor: $cursor-pointer !important;
+}
+
+label {
+	cursor: $cursor;
+}
+
+// Custom Buttons --------------------------------
+.btn {
+	&:hover {
+		border: 1px solid white;
+		cursor: $cursor-pointer;
+	}
+}
+
+.btn-filled {
+	background: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	color: white;
+}
+
+.return-btn {
+	animation: waitFadeIn 1s ease-out;
+	margin-bottom: 32px;
+}
+
+.fixed-width-btn {
+    min-width: 150px;
+}
+
+.fixed-width-btn-lg {
+	min-width: 180px;
+}
+// -------------------------------
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 25px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	animation: fadeIn 0.5s ease-out;
+}
+
+.hr {
+	border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-modal-bg {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+}
+
+.not-found {
+	font-size: 8rem;
+}
+
+.loading-icon {
+	animation: spin 1s linear infinite;
+}
+
+.selected {
+	border: 3px solid rgba(255, 255, 255, 1) !important;
+}
+
+#btnStart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.squarer-glass {
+	border-radius: 15px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+}

@@ -1,0 +1,185 @@
+<div class="full-height d-flex align-items-center justify-content-center pong-page">
+	<div class="toast-container position-fixed top-0 end-0 p-3">
+		<div id="liveToast" class="toast" style="background-color: rgba(0, 0, 0, 0); border: none; max-width: none; width: auto;" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="d-flex glass">
+				<div class="toast-body">
+					<div class="col-12 justify-content-center align-items-center p-2">
+						<p class="text-white text-center" style="display: inline; margin-right: 5px;" id="toastBody"></p>
+					</div>
+				</div>
+				<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-p="Close"></button>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center pong-interface-container">
+		<div class="col-12 text-center">
+			<p class="text-white h1" animated-letters data-translate="pong">pong</p>
+			<div class=" d-flex justify-content-center m-4">
+				<hr class="text-white" style="width: 400px;">
+			</div>
+			<div class="container">
+				<div class="row text-white d-flex justify-content-center mb-3">
+					<div class="col-6 d-flex justify-content-start">
+						<div class="d-flex justify-content-center align-items-center">
+							<img src="/static/assets/UI/icons/score.svg" width="32px" class="me-3" />
+							<p id="objectiveLabel"class="h3 mb-0">00</p>
+						</div>
+					</div>
+					<div class="col-6 d-flex justify-content-end">
+						<div class="d-flex justify-content-center align-items-center">
+							<img src="/static/assets/UI/icons/time.svg" width="32px" class="me-3"/>
+							<p id="timer" class="h3 mb-0">00:00</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row-12">
+			<div class="col-12 d-flex flex-column align-items-center mb-3" id="gameContainer">
+				<canvas class="squarer-glass" id="canvas" width="800" height="400"></canvas>
+				<button id="btnStart" class="btn btn-lg text-light btn-filled" data-translate="start game">start game</button>
+			</div>
+		</div>
+		<div class="row mb-3 text-white pong-player-box-container">
+			<div class="col-6 d-flex align-items-center flex-column justify-content-end squarer-glass p-3 pong-player-box">
+				<p class="h3" style="display: inline;" id="leftScore">0</p>
+				<div id="colorBoxLeft" class="border border-white mb-3" style="width: 100px; height: 20px;"></div>
+				<p class="h5" style="display: inline;" id="pMinimize1" data-translate="minimize"></p>
+				<p class="h6" style="display: inline;" id="lMinimizeCD" data-translate="ready"></p>
+				<p class="h3 mt-1" style="display: inline;" id="leftPaddleName">Player 1</p>
+			</div>
+			<div class="col-6 d-flex align-items-center flex-column justify-content-start squarer-glass p-3 pong-player-box">
+				<p class="h3" style="display: inline;" id="rightScore">0</p>
+				<div id="colorBoxRight" class="border border-white mb-3" style="width: 100px; height: 20px;"></div>
+				<p class="h5" style="display: inline;" id="pMinimize2" data-translate="minimize"></p>
+				<p class="h6" style="display: inline;" id="rMinimizeCD" data-translate="ready"></p>
+				<p class="h3 mt-1" style="display: inline;" id="rightPaddleName">Player 2</p>
+			</div>
+		</div>
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/pongMenu" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+
+
+		<div class="modal glass-modal-bg" id="pauseModal" data-bs-backdrop="static" tabindex="-1" aria-pledby="pauseModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center">
+						<div class="modal-header">
+							<p class="h3 modal-title text-white w-100 text-center">Game Paused</p>
+						</div>
+						<div class="modal-body">
+							<div class="col-12 d-flex flex-column align-items-center">
+								<div class="col-10 d-flex justify-content-center mt-2">
+									<p class="h5 text-white">Press escape to continue</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="modal fade glass-modal-bg" id="tournamentModal" tabindex="-1" aria-pledby="endgameModalLabel" aria-hidden="true" data-bs-keyboard="false">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center glass">
+						<div class="modal-header">
+							<div class="col-12 d-flex justify-content-center align-items-center mt-1">
+								<p class="h1 text-white text-center" style="display: inline; margin-right: 20px;" data-translate="tournament-match"></p>
+								<p class="h1 text-white text-center" id="matchTournament"></p>
+							</div>							
+						</div>
+						<div class="modal-body">
+							<div class="col-12 d-flex flex-column align-items-center">
+								<div class="col-10 d-flex justify-content-center align-items-center mt-2 mb-2">
+									<div id="colorBox1" class="border border-white" style="width: 50px; height: 20px; margin-right: 10px;"></div>
+									<p class="h3 text-white text-center" id="playersTournament"></p>
+									<div id="colorBox2" class="border border-white" style="width: 50px; height: 20px; margin-left: 10px;"></div>
+								</div>								
+								<div class="col-3 d-flex flex-column justify-content-center mt-2"></div>
+									<button type="button" class="btn btn-lg text-white btn-filled" data-bs-dismiss="modal" data-translate="start-match"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="modal fade glass-modal-bg" id="tournamentMatchEndModal" data-bs-backdrop="static" tabindex="-1" aria-pledby="endgameModalLabel" aria-hidden="true" data-bs-keyboard="false">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center glass">
+						<div class="modal-header">
+							<div class="col-12 d-flex justify-content-center align-items-center mt-1">
+								<p class="h1 text-white text-center" style="display: inline; margin-right: 20px;" data-translate="tournament-match"></p>
+								<p class="h1 text-white text-center" style="display: inline;" id="matchId"></p>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col d-flex flex-column align-items-center">
+								<div class="col-10 d-flex flex-column justify-content-center mb-1">
+									<div class="col-12 d-flex justify-content-center align-items-center">
+										<p class="h3 text-white text-center me-1" style="display: inline;" id="matchWinner"></p>
+										<p class="h3 text-white text-center" style="display: inline; margin-left: 10px;" data-translate="won-the-match"></p>
+									</div>
+									<div class="col d-flex justify-content-center align-items-center mt-3 mb-2">
+										<img src="/static/assets/UI/icons/score.svg" width="28x"/>
+										<p class="h4 text-white text-center ms-3" id="matchScore" style="display: inline;" ></p>
+									</div>
+									<div class="col d-flex justify-content-center align-items-center mb-3">
+										<img src="/static/assets/UI/icons/time.svg" width="28x"/>
+										<p class="h4 text-white text-center mb-0 ms-2" id="matchTimeElapsed"></p>
+									</div>
+								</div>
+								<div class="col-3 d-flex flex-column justify-content-center mt-2"></div>
+									<button type="button" class="btn btn-lg text-white btn-filled" id="nextMatchButton" data-bs-dismiss="modal" data-translate="next-match"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="modal fade glass-modal-bg" id="endgameModal" data-bs-backdrop="static" tabindex="-1" aria-pledby="endgameModalLabel" aria-hidden="true" data-bs-keyboard="false">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center glass">
+						<div class="modal-header">
+							<div class="col-12 d-flex justify-content-center align-items-center">
+								<p class="h1 modal-title text-white text-center" style="display: inline; margin-right: 20px;" id="endgameModalWinner"></p>
+								<p class="h1 modal-title text-white text-center" style="display: inline;" id="matchEndLabel"></p>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col-12 d-flex flex-column align-items-center">
+								<div class="col-10 d-flex justify-content-center mt-2 mb-2">
+									<img src="/static/assets/UI/icons/score.svg" width="28x"/>
+									<p class="h4 text-white ms-3" id="endgameModalScore" style="display: inline;"></p>
+								</div>
+								<div class="col d-flex justify-content-center align-items-center mb-3">
+									<img src="/static/assets/UI/icons/time.svg" width="28x"/>
+									<p class="h4 text-white text-center mb-0 ms-2" id="endgameModalTime"></p>
+								</div>
+								<div class="col-12 d-flex justify-content-center mt-1 mb-2">
+									<button type="button" class="btn btn-lg text-white btn-filled mx-2" id="playAgainButton" data-bs-dismiss="modal" data-translate="play-again"></button>
+									<a type="button" class="btn btn-lg text-white btn-filled mx-2" data-link data-bs-dismiss="modal" href="/pongMenu" data-translate="menu"></a>
+									<a type="button" class="btn btn-lg text-white btn-filled mx-2" data-link data-bs-dismiss="modal" href="/" data-translate="home-page"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container full-height d-flex flex-column align-items-center justify-content-center games-page-mobile" style="display: none;">
+	<div class="container p-5 glass">
+		<p class="text-white text-center p-0 m-0" data-translate="games-not-available-mobile">games are not available on mobile.</p>
+	</div>
+	<div class="row justify-content-center mb-3">
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>

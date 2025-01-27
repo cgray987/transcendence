@@ -1,0 +1,38 @@
+// Import helper modules
+@use "sass:math";
+
+// ------------------------------------------- Bootstrap -------------------------------------------
+// Bootstrap override variables
+// $primary: #6c757d;
+// Custom Bootstrap variables
+$primary: #007bff; // Change primary color
+$font-family-base: Arial, sans-serif; // Change font family
+$body-bg: #f8f9fa; // Change body background
+$body-color: #343a40; // Change text color
+
+// Import Bootstrap SCSS
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// ------------------------------------------- Custom SCSS -------------------------------------------
+@import "scss/variables";
+@import "scss/functions";
+@import "scss/reset";
+@import "scss/animations";
+@import "scss/global";
+@import "scss/typography";
+@import "scss/background";
+@import "scss/effects";
+@import "scss/responsive";
+@import "scss/accessibility";
+
+// Pages SCSS
+@import "scss/pages/settings";
+@import "scss/pages/home";
+@import "scss/pages/login";
+@import "scss/pages/profile";
+@import "scss/pages/editProfile";
+@import "scss/pages/friends";
+@import "scss/pages/pacmanMenu";
+@import "scss/pages/pacman";
+@import "scss/pages/pong";
+@import "scss/pages/statistics";

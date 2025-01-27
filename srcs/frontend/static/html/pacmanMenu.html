@@ -1,0 +1,80 @@
+<div class="full-height d-flex align-items-center justify-content-center pacman-menu-page">
+	<div class="row justify-content-center container-menu container">
+		<div class="toast-container position-fixed top-0 end-0 p-3">
+			<div id="liveToast" class="toast" style="background-color: rgba(0, 0, 0, 0); border: none; max-width: none; width: auto;" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="d-flex glass">
+					<div class="toast-body">
+						<div class="col-12 justify-content-center align-items-center p-2">
+							<p class="text-white text-center" style="display: inline; margin-right: 5px;" id="toastBody"></p>
+							<p class="text-white text-center" style="display: inline;" id="toastValue"></p>
+						</div>
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-p="Close"></button>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 text-center">
+			<p class="text-white h1" data-translate="pacman-menu" animated-letters></p>
+		</div>
+		<div class=" d-flex justify-content-center m-3 mb-4">
+			<hr class="text-white" style="width: 400px;">
+		</div>
+		<div class="row justify-content-center mb-2">
+			<div class="col-12 d-flex flex-column">
+				<div class="row justify-content-between gap-5">
+					<div class="col d-flex flex-column align-items-center glass mt-2 p-4">
+						<div class="col-8 d-flex flex-column align-items-center mb-1">
+							<img class="mb-2" id="imgCurrentPacSkin" src="/static/assets/pacman/images/pac-man_high_res.png" width="48px" alt="An image of pac-man."/>
+							<p class="h5 text-white mb-3" id="pacmanName">player 1</p>
+							<input type="text" id="pacmanInput" maxlength="10" class="form-control form-control-sm text-input text-center" placeholder="enter username" data-translate="enter-username" aria-label="enter username for the player one">
+						</div>
+					</div>
+					<div class="col-1 d-flex align-items-center justify-content-center">
+						<button type="button" class="btn btn-lg text-white m-2" tabindex="0" id="btnSwap" alt="The button for swapping players usernames"><img width="32px" height="32px" src="/static/assets/UI/icons/swap.svg"></button>
+					</div>
+					<div class="col d-flex flex-column align-items-center glass mt-1 p-4">
+						<div class="col-8 d-flex flex-column align-items-center mb-1">
+							<img class="mb-2" id="imgCurrentGhostSkin" src="/static/assets/pacman/images/blue-ghost_high_res.png" width="48px" alt="An image of a ghost."/>
+							<p class="h5 text-white mb-3" id="ghostName">player 2</p>
+							<input type="text" id="ghostInput" maxlength="10" class="form-control form-control-sm text-input text-center" placeholder="enter username" data-translate="enter-username" aria-label="enter username for the player two">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center mt-5 mb-5 p-5 glass">
+				<button class="btn btn-lg text-white btn-filled m-2" id="btnKeys" data-translate="keys">keys</button>
+				<button class="btn btn-lg text-white btn-filled m-2" id="btnPSkin" data-translate="pac-man">pacman</button>
+				<button class="btn btn-lg text-white btn-filled m-2" id="btnGSkin" data-translate="ghost">ghost</button>
+				<button class="btn btn-lg text-white btn-filled m-2" id="btnGamemode" data-translate="gamemode">gamemode</button>
+				<button class="btn btn-lg text-white btn-filled m-2" id="btnMap" data-translate="map">map</button>
+				<button class="btn btn-lg text-white btn-filled m-2" id="btnColor" data-translate="theme">theme</button>
+			</div>
+		</div>
+		<div class="modal fade glass-modal-bg" id="settingsModal" tabindex="-1" aria-pledby="settingsModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center glass"  id="settingsModalContent">						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 text-center">
+			<a role="button" class="btn btn-lg text-light btn-filled" href="/pacman" data-link data-translate="start game">Start game</a>
+		</div>
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/games" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>
+<div class="container full-height d-flex flex-column align-items-center justify-content-center games-page-mobile" style="display: none;">
+	<div class="container p-5 glass">
+		<p class="text-white text-center p-0 m-0" data-translate="games-not-available-mobile">games are not available on mobile, gotta work that out somehow.</p>
+	</div>
+	<div class="row justify-content-center mb-3">
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+// Basic CSS Reset
+html, body {
+	font-family: 'Space Mono', monospace;
+	margin: 0;
+	padding: 0;
+	font-variant-ligatures: no-common-ligatures;
+	overflow-x: hidden;
+	cursor: $cursor;
+	height: 100%;
+}
+
+button {
+    font-variant-ligatures: no-common-ligatures;
+}

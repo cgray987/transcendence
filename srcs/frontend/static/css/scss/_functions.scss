@@ -1,0 +1,4 @@
+// Function to convert px to rem
+@function rem($px, $base: $base-font-size) {
+    @return math.div($px, $base) * 1rem;
+}

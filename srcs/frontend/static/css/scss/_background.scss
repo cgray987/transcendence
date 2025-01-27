@@ -1,0 +1,166 @@
+// violet light blue palette
+$color-bg1: rgb(34, 23, 51);
+$color-bg2: rgb(34, 23, 51);
+$color1: rgb(101, 55, 125);
+$color2: rgb(138, 171, 203);
+$color3: rgb(70, 57, 120);
+$color4: rgb(57, 21, 79);
+$color5: rgb(67, 78, 146);
+$color-interactive: rgb(80, 56, 116);
+
+// Define variables
+// 42 color palette
+// $color-bg1: rgb(46, 50, 62);
+// $color-bg2: rgb(0, 186, 187);
+// $color1: rgb(147, 47, 78);
+// $color2: rgb(88, 153, 194);
+// $color3: rgb(112, 174, 133);
+// $color4: rgb(41, 45, 57);
+// $color5: rgb(185, 170, 204);
+// $color-interactive: rgb(3, 30, 42);
+
+// Multicolor palette
+// $color-bg1: rgb(0, 0, 0);
+// $color-bg2: rgb(19, 0, 31);
+// $color1: rgb(22, 75, 154);
+// $color2: rgb(148, 49, 171);
+// $color3: rgb(68, 149, 174);
+// $color4: rgb(149, 34, 119);
+// $color5: rgb(136, 140, 40);
+// $color-interactive: rgb(79, 0, 125);
+
+// new palette 1
+// $color-bg1: rgb(0, 0, 0);
+// $color-bg2: rgb(28, 0, 45);
+// $color1: rgb(49, 1, 117);
+// $color2: rgb(129, 11, 156);
+// $color3: rgb(111, 8, 61);
+// $color4: rgb(149, 34, 119);
+// $color5: rgb(14, 45, 72);
+// $color-interactive: rgb(106, 5, 52);
+
+// Red color palette
+// $color-bg1: rgb(84, 0, 0);
+// $color-bg2: rgb(60, 63, 0);
+// $color1: rgb(255, 123, 0);
+// $color2: rgb(255, 183, 0);
+// $color3: rgb(255, 31, 31);
+// $color4: rgb(129, 79, 13);
+// $color5: rgb(255, 229, 31);
+// $color-interactive: rgb(135, 15, 15);
+
+$circle-size: 80%;
+// $blending: hard-light;
+$blending: color-burn;
+
+@keyframes moveInCircle {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes moveVertical {
+	0% {
+		transform: translateY(-50%);
+	}
+	50% {
+		transform: translateY(50%);
+	}
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes moveHorizontal {
+	0% {
+		transform: translateX(-50%) translateY(-10%);
+	}
+	50% {
+		transform: translateX(50%) translateY(10%);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-10%);
+	}
+}
+
+.gradient-bg {
+	z-index: -2;
+	width: 100vw;
+	height: 100%;
+	position: absolute;
+	// overflow: hidden;
+	background: linear-gradient(40deg, $color-bg1, $color-bg2);
+	top: 0;
+	left: 0;
+
+	svg {
+		display: none;
+	}
+
+	.gradients-container {
+		filter: url(#goo) blur(40px);
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	@mixin g($color, $top, $left, $animation, $transform-origin, $opacity, $circle-size: 80%) {
+		position: absolute;
+		background: radial-gradient(circle at center, rgba($color, 0.8) 0, rgba($color, 0) 50%) no-repeat;
+		mix-blend-mode: $blending;
+		width: $circle-size;
+		height: $circle-size;
+		top: $top;
+		left: $left;
+		transform-origin: $transform-origin;
+		animation: $animation;
+		opacity: $opacity;
+	}
+
+	.g1 {
+		@include g($color1, calc(50% - $circle-size / 2), calc(50% - $circle-size / 2), moveVertical 30s ease infinite, center center, 1);
+	}
+
+	.g2 {
+		@include g($color2, calc(50% - $circle-size / 2), calc(50% - $circle-size / 2), moveInCircle 20s reverse infinite, calc(50% - 400px), 1);
+	}
+
+	.g3 {
+		@include g($color3, calc(50% - $circle-size / 2 + 200px), calc(50% - $circle-size / 2 - 500px), moveInCircle 40s linear infinite, calc(50% + 400px), 1);
+	}
+
+	.g4 {
+		@include g($color4, calc(50% - $circle-size / 2), calc(50% - $circle-size / 2), moveHorizontal 40s ease infinite, calc(50% - 200px), 0.7);
+	}
+
+	.g5 {
+		@include g($color5, calc(50% - $circle-size), calc(50% - $circle-size), moveInCircle 20s ease infinite, calc(50% - 800px) calc(50% + 200px), 1, calc($circle-size * 2));
+	}
+
+	.interactive {
+		position: absolute;
+		background: radial-gradient(circle at center, rgba($color-interactive, 0.8) 0, rgba($color-interactive, 0) 50%) no-repeat;
+		mix-blend-mode: $blending;
+		width: 100%;
+		height: 100%;
+		top: -50%;
+		left: -50%;
+		opacity: 0.7;
+	}
+}
+
+// Video Background
+#video-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 100%;
+	overflow: hidden;
+}

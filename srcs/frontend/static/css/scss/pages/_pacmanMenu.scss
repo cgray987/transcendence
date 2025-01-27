@@ -1,0 +1,66 @@
+.container-menu {
+	max-width: rem(1000px);
+}
+
+#rangeInput {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    outline: none;
+}
+
+/* Custom track (background of the slider) */
+@mixin custom-track {
+	width: 100%;
+	height: 20px;
+	cursor: $cursor-pointer;
+	background: url('/static/assets/pacman/images/food2.png') repeat-x;
+	border: none;
+}
+
+// Custom track for webkit based browsers (Chrome, Safari)
+#rangeInput::-webkit-slider-runnable-track {
+    @include custom-track;
+}
+
+// Custom track for Firefox
+#rangeInput::-moz-range-track {
+	@include custom-track;
+}
+
+// Custom handle (thumb) with pac-man image
+@mixin custom-thumb {
+	width: 40px;
+	height: 40px;
+	background: url('/static/assets/pacman/images/pac-man_high_res.png') no-repeat;
+	background-size: cover;
+	cursor: $cursor-pointer;
+	border: none;
+}
+
+#rangeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    @include custom-thumb;
+    margin-top: -10px;
+}
+
+#rangeInput::-moz-range-thumb {
+	@include custom-thumb;
+}
+
+// Hover effect for thumb
+@mixin custom-thumb-hover {
+	background-size: cover;
+	filter: brightness(0.7);
+}
+
+#rangeInput::-webkit-slider-thumb:hover {
+    @include custom-thumb-hover;
+}
+
+#rangeInput::-moz-range-thumb:hover {
+	@include custom-thumb-hover;
+}

@@ -28,6 +28,12 @@ $(NAME):
 	docker compose up --remove-orphans -d
 	@echo "$(BCYAN)~~ Server running in detached mode ~~$(NC)"
 
+attached:
+	@echo "$$HEADER"
+	@echo "$(BCYAN)~~ Running server: $(GREEN)$(NAME)$(BCYAN)~~$(NC)"
+	docker compose up --remove-orphans
+	@echo "$(BCYAN)~~ Server running in detached mode ~~$(NC)"
+
 build:
 	@echo "$(BCYAN)~~ Building server $(NAME)~~$(NC)"
 	docker compose build --no-cache
@@ -61,6 +67,8 @@ status:
 	@docker images
 	@echo "\n$(GREEN)>> DOCKER VOLUMES:$(NC)"
 	@docker volume ls
+	@echo "\n$(GREEN)>> DOCKER NETWORKS:$(NC)"
+	@docker network ls
 
 docker_shell:
-	docker exec -it transcendence-web /bin/bash
+	docker exec -it django_web /bin/bash

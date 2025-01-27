@@ -1,0 +1,11 @@
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, .tabbable:focus-visible, label:focus-visible, img:focus-visible, .clickable:focus-visible {
+    outline: 3px solid $main-color !important;
+    outline-offset: 4px !important;
+}
+
+button:focus,
+.btn:focus {
+    background-color: inherit;
+    border-color: inherit;
+    box-shadow: none;
+}

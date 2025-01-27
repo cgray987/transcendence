@@ -1,0 +1,67 @@
+<div class="full-height d-flex align-items-center justify-content-center pong-page">
+	<div class="row justify-content-center container-menu">
+		<div class="toast-container position-fixed top-0 end-0 p-3">
+			<div id="liveToast" class="toast" style="background-color: rgba(0, 0, 0, 0); border: none; max-width: none; width: auto;" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="d-flex glass">
+					<div class="toast-body" >
+						<div class="col-12 justify-content-center align-items-center p-2">
+							<p class="text-white text-center" style="display: inline; margin-right: 5px;" id="toastBody"></p>
+							<p class="text-white text-center" style="display: inline;" id="toastValue"></p>
+						</div>
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-p="Close"></button>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 text-center d-flex flex-column">
+			<p class="text-white h1" animated-letters data-translate="pong menu"></p>
+		</div>
+		<div class=" d-flex justify-content-center m-3 mb-3">
+			<hr class="text-white" style="width: 400px;">
+		</div>
+		<div class="col-12 text-center d-flex flex-column mb-4">
+			<p class="text-white h3 mt-3"><span id="currentGamemodeLabel"></span>・<span id="currentGamestyleLabel"></span></p>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col d-flex flex-column">
+				<div class="row justify-content-center gap-4" id="playersContainer"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center mt-4 mb-4 p-5 glass">
+				<button role="button" class="btn btn-lg text-white btn-filled" id="btnKeys" data-translate="keys"></button>
+				<button role="button" class="btn btn-lg text-white btn-filled" id="btnGamemode" data-translate="gamemode"></button>
+				<button role="button" class="btn btn-lg text-white btn-filled" id="btnGamestyle" data-translate="gamestyle"></button>
+			</div>
+		</div>
+		<div class="modal fade glass-modal-bg" id="settingsModal" tabindex="-1" aria-pledby="settingsModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			  	<div class="modal-content justify-content-center" style="background-color: rgba(0, 0, 0, 0); border: none;">
+					<div class="row justify-content-center glass" id="settingsModalContent">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 d-flex justify-content-center glass p-5" id="pointsRangeContainer">
+		</div>
+			
+		</div>
+		<div class="col-12 text-center mt-5">
+			<a role="button" id="btnStartGame" class="btn btn-lg text-white btn-filled" href="/pong" data-link data-translate="start game"></a>
+		</div>
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/games" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>
+<div class="container full-height d-flex flex-column align-items-center justify-content-center games-page-mobile" style="display: none;">
+	<div class="container p-5 glass">
+		<p class="text-white text-center p-0 m-0" data-translate="games-not-available-mobile"></p>
+	</div>
+	<div class="row justify-content-center mb-3">
+		<div class="col-12 text-center mt-5 d-flex justify-content-center">
+			<a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3" href="/" data-link><img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow"></a>
+		</div>
+	</div>
+</div>

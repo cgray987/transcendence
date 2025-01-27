@@ -1,0 +1,33 @@
+.container-login {
+	max-width: rem(400px);
+	max-height: 1000px !important;
+	overflow-y: auto;
+	margin-top: $glass-margin-top;
+}
+
+.text-input {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	color: white;
+	caret-color: white;
+
+}
+
+.light-text {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.sign {
+	color: white;
+}
+
+.text-input:focus {
+	background: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	color: white;
+}
+
+.text-input::placeholder {
+	color: white;
+}

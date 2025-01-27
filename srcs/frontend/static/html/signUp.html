@@ -1,0 +1,48 @@
+<div class="full-height d-flex flex-column align-items-center justify-content-center">
+    <form class="container container-login p-5 glass">
+        <div class="row justify-content-center mb-2">
+            <div class="col-12 text-center">
+                <p class="text-white h1" animated-letters data-translate="sign up">sign up</p>
+            </div>
+        </div>
+		<div class="row justify-content-center mb-4">
+			<div class="col-12 text-left">
+				<hr class="text-white">
+			</div>
+		</div>
+        <div class="row justify-content-center mb-3">
+			<div class="col-12 text-left">
+				<label for="username" class="text-white" data-translate="username">username:</label>
+				<input type="text" class="form-control text-center text-input" id="username" data-translate="username" maxlength="15">
+				<small class="text-danger" id="username-error">&nbsp;</small>
+			</div>
+		</div>
+        <div class="row justify-content-center mb-3">
+			<div class="col-12 text-left">
+				<label for="email" class="text-white" data-translate="e-mail">email:</label>
+				<input type="text" class="form-control text-center text-input" id="email" maxlength="30">
+				<small class="text-danger" id="email-error">&nbsp;</small>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-3">
+			<div class="col-12 text-left">
+				<label for="password" class="text-white" data-translate="password">password:</label>
+				<input type="password" class="form-control text-center text-input" id="password" maxlength="64">
+				<small class="text-danger" id="password-error">&nbsp;</small>
+			</div>
+		</div>
+		<div class="row justify-content-center mt-4">
+			<div class="col-12 text-center">
+				<button class="btn btn-lg text-light btn-filled" id="sign-up-button" data-translate="sign up">sign up</button>
+			</div>
+		</div>
+		<div class="row justify-content-center mt-4">
+			<div class="col-12 text-center">
+				<small class="light-text" data-translate="have account">have an account?</small> <small> <a href="/signin" class="text-light sign" data-link data-translate="login">login</a></small>
+			</div>
+		</div>
+    </form>
+    <a role="button" class="return-btn btn btn-lg text-light text-center d-flex align-items-center justify-content-center p-3 mt-5" href="/profile" data-link>
+        <img src="static/assets/UI/icons/left_arrow.svg" alt="return button" id="left-arrow">
+    </a>
+</div>
