@@ -42,6 +42,10 @@ stop:
 	@echo "$(RED)!! Stopping server: $(GREEN)$(NAME)$(RED) !!$(NC)"
 	docker stop $(shell docker ps -aq)
 
+down:
+	@echo "stopping stuff"
+	docker-compose down
+
 prune:
 	@echo "$(RED)!! Pruning all stopped containers !!$(NC)"
 	docker container prune -f
